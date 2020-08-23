@@ -23,7 +23,7 @@ export default {
   yearResourceTableWidth: 160,
   customResourceTableWidth: 160,
 
-  dayCellWidth: 30,
+  dayCellWidth: 60,
   weekCellWidth: "12%",
   monthCellWidth: 80,
   quarterCellWidth: 80,
@@ -69,7 +69,7 @@ export default {
   agendaViewHeader: "Agenda",
   addMorePopoverHeaderFormat: "MMM D, YYYY dddd",
   eventItemPopoverDateFormat: "MMM D",
-  nonAgendaDayCellHeaderFormat: "ha",
+  nonAgendaDayCellHeaderFormat: "HH:mm",
   nonAgendaOtherCellHeaderFormat: "ddd M/D",
 
   minuteStep: 30,

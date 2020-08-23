@@ -22,52 +22,50 @@ class HeaderView extends Component {
     let style = {};
     if (cellUnit === CellUnits.Hour) {
       headers.forEach((item, index) => {
-        if (index % minuteStepsInHour === 0) {
-          let datetime = localeMoment(item.time);
-          const isCurrentTime = datetime.isSame(new Date(), "hour");
+        let datetime = localeMoment(item.time);
 
+        const isCurrentTime = datetime.isSame(new Date(), "hour");
+        style = !!item.nonWorkingTime
+          ? {
+              width: (cellWidth * minuteStepsInHour) / 2,
+              color: config.nonWorkingTimeHeadColor,
+              backgroundColor: config.nonWorkingTimeHeadBgColor,
+            }
+          : { width: (cellWidth * minuteStepsInHour) / 2 };
+
+        if (index === headers.length - minuteStepsInHour / 2)
           style = !!item.nonWorkingTime
             ? {
-                width: cellWidth * minuteStepsInHour,
                 color: config.nonWorkingTimeHeadColor,
                 backgroundColor: config.nonWorkingTimeHeadBgColor,
               }
-            : { width: cellWidth * minuteStepsInHour };
+            : {};
 
-          if (index === headers.length - minuteStepsInHour)
-            style = !!item.nonWorkingTime
-              ? {
-                  color: config.nonWorkingTimeHeadColor,
-                  backgroundColor: config.nonWorkingTimeHeadBgColor,
-                }
-              : {};
+        let pFormattedList = config.nonAgendaDayCellHeaderFormat
+          .split("|")
+          .map((item) => datetime.format(item));
+        let element;
 
-          let pFormattedList = config.nonAgendaDayCellHeaderFormat
-            .split("|")
-            .map((item) => datetime.format(item));
-          let element;
+        if (typeof nonAgendaCellHeaderTemplateResolver === "function") {
+          element = nonAgendaCellHeaderTemplateResolver(
+            schedulerData,
+            item,
+            pFormattedList,
+            style
+          );
+        } else {
+          const pList = pFormattedList.map((item, index) => (
+            <div key={index}>{item}</div>
+          ));
 
-          if (typeof nonAgendaCellHeaderTemplateResolver === "function") {
-            element = nonAgendaCellHeaderTemplateResolver(
-              schedulerData,
-              item,
-              pFormattedList,
-              style
-            );
-          } else {
-            const pList = pFormattedList.map((item, index) => (
-              <div key={index}>{item}</div>
-            ));
-
-            element = (
-              <th key={item.time} className="header3-text" style={style}>
-                <div>{pList}</div>
-              </th>
-            );
-          }
-
-          headerList.push(element);
+          element = (
+            <div key={item.time} className="header3-text" style={style}>
+              <div>{pList}</div>
+            </div>
+          );
         }
+
+        headerList.push(element);
       });
     } else {
       headerList = headers.map((item, index) => {
@@ -105,17 +103,19 @@ class HeaderView extends Component {
         ));
 
         return (
-          <th key={item.time} className="header3-text" style={style}>
+          <div key={item.time} className="header3-text" style={style}>
             <div>{pList}</div>
-          </th>
+          </div>
         );
       });
     }
 
     return (
-      <thead>
-        <tr style={{ height: headerHeight }}>{headerList}</tr>
-      </thead>
+      <div>
+        <div style={{ height: headerHeight, display: "flex" }}>
+          {headerList}
+        </div>
+      </div>
     );
   }
 }

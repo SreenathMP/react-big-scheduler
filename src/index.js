@@ -50,6 +50,7 @@ import CellUnits from "./CellUnits";
 import SummaryPos from "./SummaryPos";
 import SchedulerData from "./SchedulerData";
 import DemoData from "./DemoData";
+import TimeLine from "./TimeLine";
 import styled from "styled-components";
 
 const WrapSelect = styled.div``;
@@ -72,6 +73,7 @@ class Scheduler extends Component {
     super(props);
 
     const { schedulerData, dndSources } = props;
+
     let sources = [];
     sources.push(
       new DnDSource((props) => {
@@ -191,6 +193,9 @@ class Scheduler extends Component {
       isEventPerspective,
       config,
     } = schedulerData;
+    const { localeMoment, selectDate } = schedulerData;
+    const start = localeMoment(selectDate).startOf("day");
+    const end = localeMoment(selectDate).endOf("day");
     const width = schedulerData.getSchedulerWidth();
     const calendarPopoverEnabled = config.calendarPopoverEnabled;
 
@@ -376,6 +381,11 @@ class Scheduler extends Component {
                     <BodyView {...this.props} />
                   </div>
                 </div>
+                <TimeLine
+                  maxWidth={schedulerData.getContentTableWidth()}
+                  startTime={start}
+                  endTime={end}
+                />
               </div>
             </div>
           </div>

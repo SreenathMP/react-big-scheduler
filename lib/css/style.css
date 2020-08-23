@@ -49,12 +49,12 @@
 }
 
 .resource-view {
-    border: 1px solid #e9e9e9;
-    overflow: hidden;
+    min-width: 180px;
+    margin-right: 10px;
 }
 
 .scheduler-view {
-    border: 1px solid #e9e9e9;
+
     margin: 0 0 0 -1px;
     padding: 0;
 }
@@ -129,6 +129,7 @@ table.scheduler-table tr:last-child td {
 
 .timeline-event {
     position: absolute;
+    top: 24px !important;
 }
 
 .day-event {
@@ -234,4 +235,32 @@ table.scheduler-table tr:last-child td {
 
 .selected-area {
     position: absolute;
+}
+
+.timeMark {
+    text-align: left;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    width: 100px;
+    z-index: 10;
+    height: 100%;
+    border-right: 1px solid #e3165b !important;
+    color: #e3165b;
+    font-size: 10px;
+}
+
+.timeMark .timeMarkPoint {
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    background: #e3165b;
+    border-radius: 3px;
+    right: -3.5px;
+    top: 0;
+}
+
+.timeText {
+    position: absolute;
+    right: -25px;
 }
