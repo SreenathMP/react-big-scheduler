@@ -194,8 +194,6 @@ class Scheduler extends Component {
       config,
     } = schedulerData;
     const { localeMoment, selectDate } = schedulerData;
-    const start = localeMoment(selectDate).startOf("day");
-    const end = localeMoment(selectDate).endOf("day");
     const width = schedulerData.getSchedulerWidth();
     const calendarPopoverEnabled = config.calendarPopoverEnabled;
 
@@ -381,11 +379,7 @@ class Scheduler extends Component {
                     <BodyView {...this.props} />
                   </div>
                 </div>
-                <TimeLine
-                  maxWidth={schedulerData.getContentTableWidth()}
-                  startTime={start}
-                  endTime={end}
-                />
+                <TimeLine maxWidth={schedulerData.getContentTableWidth()} />
               </div>
             </div>
           </div>

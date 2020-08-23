@@ -3,12 +3,11 @@ import React, { useEffect, useState } from "react";
 
 const TimeLine = (props) => {
   const [currentTime, setCurrentTime] = useState(moment());
-  const { startTime, endTime, maxWidth } = props;
-  const progress = currentTime.diff(startTime) / endTime.diff(startTime);
-  const width = Math.min(Math.round(progress * maxWidth), maxWidth);
+  const { maxWidth } = props;
 
-  const isBeforeToday = currentTime.isAfter(endTime);
-  const isAfterToday = currentTime.isBefore(startTime);
+  const getCurrentTimePosition = (hour, min) => {
+    return hour * (maxWidth / 24) + ((min / 60) * maxWidth) / 24;
+  };
 
   useEffect(() => {
     const intervalId = setInterval(() => setCurrentTime(moment()), 10000);
@@ -17,19 +16,21 @@ const TimeLine = (props) => {
 
   return (
     <React.Fragment>
-      {!isAfterToday && (
-        <div
-          className="timeMark"
-          style={isBeforeToday ? { width, border: "none" } : { width }}
-        >
-          {!isBeforeToday && (
-            <React.Fragment>
-              <div className="timeMarkPoint" />
-              <span className="timeText"> {currentTime.format("h:mm a")} </span>
-            </React.Fragment>
-          )}
-        </div>
-      )}
+      <div
+        className="timeMark"
+        style={{
+          width: getCurrentTimePosition(
+            moment().format("HH"),
+            moment().format("mm")
+          ),
+        }}
+      >
+        <React.Fragment>
+          <div className="timeMarkPoint" />
+          <span className="timeText"> {currentTime.format("h:mm a")} </span>
+        </React.Fragment>
+        )
+      </div>
     </React.Fragment>
   );
 };
