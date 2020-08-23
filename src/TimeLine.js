@@ -27,9 +27,7 @@ const TimeLine = (props) => {
       >
         <React.Fragment>
           <div className="timeMarkPoint" />
-          <span className="timeText"> {currentTime.format("h:mm a")} </span>
         </React.Fragment>
-        )
       </div>
     </React.Fragment>
   );

@@ -52,6 +52,7 @@ import SchedulerData from "./SchedulerData";
 import DemoData from "./DemoData";
 import TimeLine from "./TimeLine";
 import styled from "styled-components";
+import SlotPointer from "./SlotPointer";
 
 const WrapSelect = styled.div``;
 
@@ -330,7 +331,6 @@ class Scheduler extends Component {
             <div
               style={{
                 overflow: "hidden",
-                borderBottom: "1px solid #e9e9e9",
                 height: config.tableHeaderHeight,
               }}
             >
@@ -379,9 +379,11 @@ class Scheduler extends Component {
                     <BodyView {...this.props} />
                   </div>
                 </div>
-                <TimeLine maxWidth={schedulerData.getContentTableWidth()} />
+
+                <SlotPointer maxWidth={schedulerData.getContentTableWidth()} />
               </div>
             </div>
+            <TimeLine maxWidth={schedulerData.getContentTableWidth()} />
           </div>
         </div>
       );

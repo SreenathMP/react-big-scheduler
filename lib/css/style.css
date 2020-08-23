@@ -57,6 +57,7 @@
 
     margin: 0 0 0 -1px;
     padding: 0;
+    position: relative;
 }
 
 .scheduler-content {
@@ -245,22 +246,35 @@ table.scheduler-table tr:last-child td {
     width: 100px;
     z-index: 10;
     height: 100%;
-    border-right: 1px solid #e3165b !important;
-    color: #e3165b;
+    border-right: 2px solid #4FBC7B !important;
+    color: #4FBC7B;
     font-size: 10px;
+    z-index: 1;
 }
 
 .timeMark .timeMarkPoint {
-    height: 6px;
-    width: 6px;
+    height: 11px;
+    width: 11px;
     position: absolute;
-    background: #e3165b;
-    border-radius: 3px;
-    right: -3.5px;
+    background: #4FBC7B;
+    border-radius: 5.5px;
+    right: -5.5px;
     top: 0;
 }
 
-.timeText {
+
+
+
+.slotMark {
+    text-align: left;
     position: absolute;
-    right: -25px;
+    pointer-events: none;
+    top: 0;
+    width: 100px;
+    z-index: 10;
+    height: 100%;
+    border-right: 1px solid #C2C4CF !important;
+    color: #C2C4CF;
+    font-size: 10px;
+    z-index: 1;
 }
