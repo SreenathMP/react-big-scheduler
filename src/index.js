@@ -248,9 +248,10 @@ class Scheduler extends Component {
       let contentPaddingBottom =
         contentScrollbarHeight === 0 ? resourceScrollbarHeight : 0;
       let schedulerContentStyle = {
-        overflow: "auto",
+        overflowY: "hidden",
         margin: "0px",
         position: "relative",
+        marginTop: "-30px",
         paddingBottom: contentPaddingBottom,
       };
       let resourceContentStyle = {
@@ -379,11 +380,10 @@ class Scheduler extends Component {
                     <BodyView {...this.props} />
                   </div>
                 </div>
-
+                <TimeLine maxWidth={schedulerData.getContentTableWidth()} />
                 <SlotPointer maxWidth={schedulerData.getContentTableWidth()} />
               </div>
             </div>
-            <TimeLine maxWidth={schedulerData.getContentTableWidth()} />
           </div>
         </div>
       );

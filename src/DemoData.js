@@ -2,31 +2,27 @@ const DemoData = {
   resources: [
     {
       id: "r1",
-      name: "Resource1",
+      name: "Dr. Sara",
     },
     {
       id: "r2",
-      name: "Resource2",
+      name: "Dr. Arend",
     },
     {
       id: "r3",
-      name: "Resource3",
+      name: "Dr. Prescott",
     },
     {
       id: "r4",
-      name: "Resource4",
+      name: "Dr. Sofia",
     },
     {
       id: "r5",
-      name: "Resource5",
+      name: "Dr. Usha",
     },
     {
       id: "r6",
-      name: "Resource6",
-    },
-    {
-      id: "r7",
-      name: "Resource7",
+      name: "Dr. Benedikt",
     },
   ],
   events: [
