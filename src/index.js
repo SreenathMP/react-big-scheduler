@@ -327,7 +327,11 @@ class Scheduler extends Component {
 
           <div
             className="scheduler-view"
-            style={{ width: schedulerContainerWidth, verticalAlign: "top" }}
+            style={{
+              width: schedulerContainerWidth,
+              verticalAlign: "top",
+              overflowX: "auto",
+            }}
           >
             <div
               style={{
