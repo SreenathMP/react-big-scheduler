@@ -200,7 +200,7 @@ class EventItem extends Component {
     let slotId = schedulerData._getEventSlotId(eventItem);
     let slotName = undefined;
     let slot = schedulerData.getSlotById(slotId);
-    if (!!slot) slotName = slot.name;
+    if (!!slot) slotName = slot.main_data;
     if (config.checkConflict) {
       let start = localeMoment(newStart),
         end = localeMoment(eventItem.end);
@@ -387,7 +387,7 @@ class EventItem extends Component {
     let slotId = schedulerData._getEventSlotId(eventItem);
     let slotName = undefined;
     let slot = schedulerData.getSlotById(slotId);
-    if (!!slot) slotName = slot.name;
+    if (!!slot) slotName = slot.main_data;
     if (config.checkConflict) {
       let start = localeMoment(eventItem.start),
         end = localeMoment(newEnd);
@@ -509,7 +509,7 @@ class EventItem extends Component {
         style={{ height: config.eventItemHeight, backgroundColor: bgColor }}
       >
         <Image
-          src={null}
+          src={eventItem.img_file_url}
           width="24px"
           height="24px"
           style={{

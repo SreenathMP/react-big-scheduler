@@ -2,38 +2,57 @@ const DemoData = {
   resources: [
     {
       id: "r1",
-      name: "Dr. Sara",
+      main_data: "Dr. Sara",
+      sub_data: ["San Jose", "Mountain View, CA", "Palmdale, CA"],
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: "r2",
-      name: "Dr. Arend",
+      main_data: "Dr. Sara",
+      sub_data: ["San Jose", "Mountain View, CA", "Palmdale, CA"],
+      img_file_url: "",
     },
     {
       id: "r3",
-      name: "Dr. Prescott",
+      main_data: "Dr. Sara",
+      sub_data: ["San Jose", "Mountain View, CA", "Palmdale, CA"],
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: "r4",
-      name: "Dr. Sofia",
+      main_data: "Dr. Sara",
+      sub_data: ["San Jose", "Mountain View, CA", "Palmdale, CA"],
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: "r5",
-      name: "Dr. Usha",
+      main_data: "Dr. Sara",
+      sub_data: ["San Jose", "Mountain View, CA", "Palmdale, CA"],
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: "r6",
-      name: "Dr. Benedikt",
+      main_data: "Dr. Sara",
+      sub_data: ["San Jose", "Mountain View, CA", "Palmdale, CA"],
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
   ],
   events: [
     {
       id: 1,
-      start: "2017-12-18 09:30:00",
-      end: "2017-12-19 23:30:00",
+      start: "2020-09-04 08:30:00",
+      end: "2020-09-04 09:30:00",
       resourceId: "r1",
       title: "I am finished",
       bgColor: "#D9D9D9",
       showPopover: false,
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: 2,
@@ -42,6 +61,8 @@ const DemoData = {
       resourceId: "r2",
       title: "I am not resizable",
       resizable: false,
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: 3,
@@ -50,6 +71,8 @@ const DemoData = {
       resourceId: "r3",
       title: "I am not movable",
       movable: false,
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: 4,
@@ -58,6 +81,8 @@ const DemoData = {
       resourceId: "r4",
       title: "I am not start-resizable",
       startResizable: false,
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: 5,
@@ -66,6 +91,8 @@ const DemoData = {
       resourceId: "r5",
       title: "I am not end-resizable",
       endResizable: false,
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: 6,
@@ -73,6 +100,7 @@ const DemoData = {
       end: "2017-12-19 23:30:00",
       resourceId: "r6",
       title: "I am normal",
+      img_file_url: "",
     },
     {
       id: 7,
@@ -81,6 +109,8 @@ const DemoData = {
       resourceId: "r7",
       title: "I am exceptional",
       bgColor: "#FA9E95",
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: 8,
@@ -91,6 +121,8 @@ const DemoData = {
       movable: false,
       resizable: false,
       bgColor: "red",
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: 9,
@@ -98,6 +130,7 @@ const DemoData = {
       end: "2017-12-27 23:30:00",
       resourceId: "r1",
       title: "R1 has many tasks 1",
+      img_file_url: "",
     },
     {
       id: 10,
@@ -107,6 +140,8 @@ const DemoData = {
       title: "R1 has recurring tasks every week on Tuesday, Friday",
       rrule: "FREQ=WEEKLY;DTSTART=20171219T013000Z;BYDAY=TU,FR",
       bgColor: "#f759ab",
+      img_file_url:
+        "https://gp-assets-1.growthplug.com/team/profile_pic/2020/08/31/3.jpg",
     },
     {
       id: 11,
@@ -114,6 +149,7 @@ const DemoData = {
       end: "2017-12-20 23:30:00",
       resourceId: "r1",
       title: "R1 has many tasks 3",
+      img_file_url: "",
     },
     {
       id: 12,
@@ -121,6 +157,7 @@ const DemoData = {
       end: "2017-12-20 23:30:00",
       resourceId: "r1",
       title: "R1 has many tasks 4",
+      img_file_url: "",
     },
     {
       id: 13,
@@ -128,6 +165,7 @@ const DemoData = {
       end: "2017-12-24 23:30:00",
       resourceId: "r1",
       title: "R1 has many tasks 5",
+      img_file_url: "",
     },
     {
       id: 14,
@@ -135,6 +173,7 @@ const DemoData = {
       end: "2017-12-27 23:30:00",
       resourceId: "r1",
       title: "R1 has many tasks 6",
+      img_file_url: "",
     },
   ],
   eventsForTaskView: [

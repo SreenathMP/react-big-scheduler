@@ -24,12 +24,12 @@ const ResourceListInfo = styled.div`
 `;
 
 const TextPrimary = styled.div`
-  color: "#2A2D37";
+  color: #2a2d37;
   line-height: 16px;
 `;
 
 const TextTertiary = styled.div`
-  color: "#989CAC";
+  color: #989cac;
   font-size: 12px;
   line-height: 13px;
 `;
@@ -38,7 +38,7 @@ const ResourceCardList = (props) => {
   return (
     <ResourceListWrap>
       <Image
-        src={null}
+        src={props.item.img_file_url}
         width="32px"
         height="32px"
         style={{
@@ -46,12 +46,8 @@ const ResourceCardList = (props) => {
         }}
       />
       <ResourceListInfo>
-        <div>
-          <TextPrimary>{props.item.slotName}</TextPrimary>
-        </div>
-        <div>
-          <TextTertiary>{props.item.slotName}</TextTertiary>
-        </div>
+        <TextPrimary>{props.item.slotName}</TextPrimary>
+        <TextTertiary>{props.item.slotSubName.join()}</TextTertiary>
       </ResourceListInfo>
     </ResourceListWrap>
   );
@@ -77,7 +73,6 @@ class ResourceView extends Component {
       slotItemTemplateResolver,
     } = this.props;
     const { renderData } = schedulerData;
-
     let width = schedulerData.getResourceTableWidth() - 2;
     let paddingBottom = contentScrollbarHeight;
     let resourceList = renderData.map((item) => {
@@ -95,7 +90,6 @@ class ResourceView extends Component {
         );
       let slotItem = (
         <div
-          title={item.slotName}
           className="overflow-text header2-text"
           style={{ textAlign: "left" }}
         >

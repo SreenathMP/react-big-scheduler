@@ -123,7 +123,7 @@ export const getEventText = (schedulerData, event) => {
   let eventText = event.title;
   schedulerData.resources.forEach((item) => {
     if (item.id === event.resourceId) {
-      eventText = item.name;
+      eventText = item.main_data;
     }
   });
 
