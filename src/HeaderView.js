@@ -30,14 +30,16 @@ class HeaderView extends Component {
               width: (cellWidth * minuteStepsInHour) / 2,
               color: config.nonWorkingTimeHeadColor,
               backgroundColor: config.nonWorkingTimeHeadBgColor,
+              paddingTop: "10px",
             }
-          : { width: (cellWidth * minuteStepsInHour) / 2 };
+          : { width: (cellWidth * minuteStepsInHour) / 2, paddingTop: "10px" };
 
         if (index === headers.length - minuteStepsInHour / 2)
           style = !!item.nonWorkingTime
             ? {
                 color: config.nonWorkingTimeHeadColor,
                 backgroundColor: config.nonWorkingTimeHeadBgColor,
+                paddingTop: "10px",
               }
             : {};
 

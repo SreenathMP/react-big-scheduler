@@ -1,8 +1,7 @@
 const images = {
   icons: {
-
-  	 growthplug_logo: require('../assets/icons/growthplug-bg-white.svg'),
-  }
+    logoSmall: require("../images/growthplug-small.png"),
+  },
 };
 
 export default images;

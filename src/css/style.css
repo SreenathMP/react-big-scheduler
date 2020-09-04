@@ -242,7 +242,7 @@ table.scheduler-table tr:last-child td {
   text-align: left;
   position: absolute;
   pointer-events: none;
-  top: 0;
+  top: 4px;
   width: 100px;
   z-index: 10;
   height: 100%;
@@ -266,7 +266,7 @@ table.scheduler-table tr:last-child td {
   text-align: left;
   position: absolute;
   pointer-events: none;
-  top: 18px;
+  top: 30px;
   width: 100px;
   z-index: 10;
   height: 100%;

@@ -61,11 +61,35 @@ const SchedularContent = styled.div`
   flex-direction: column;
 `;
 
-const AppointmentHeader = styled.div`
-  width: 150px;
+const HeaderActionButtons = styled.div`
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  width: 100%;
 `;
 
-const AppointmentSlots = styled.div``;
+const LeftButton = styled.div`
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  background-color: #F4F4F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+`;
+
+const RightButton = styled.div`
+
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  background-color: #F4F4F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+`;
 
 const RadioButton = Radio.Button;
 
@@ -74,7 +98,6 @@ class Scheduler extends Component {
     super(props);
 
     const { schedulerData, dndSources } = props;
-
     let sources = [];
     sources.push(
       new DnDSource((props) => {
@@ -184,6 +207,10 @@ class Scheduler extends Component {
       }
     }
   }
+
+  scrollFunc = (offSet) => {
+    document.getElementById("schedulerViewId").scrollLeft = offSet;
+  };
 
   render() {
     const { schedulerData, leftCustomHeader, rightCustomHeader } = this.props;
@@ -327,6 +354,7 @@ class Scheduler extends Component {
 
           <div
             className="scheduler-view"
+            id="schedulerViewId"
             style={{
               width: schedulerContainerWidth,
               verticalAlign: "top",
@@ -339,6 +367,20 @@ class Scheduler extends Component {
                 height: config.tableHeaderHeight,
               }}
             >
+              <HeaderActionButtons>
+                <LeftButton onClick={() => this.scrollFunc(-20)}>
+                  <Icon
+                    type="left"
+                    style={{ fontSize: "12px", color: "#6E717C" }}
+                  />
+                </LeftButton>
+                <RightButton onClick={() => this.scrollFunc(20)}>
+                  <Icon
+                    type="right"
+                    style={{ fontSize: "12px", color: "#6E717C" }}
+                  />
+                </RightButton>
+              </HeaderActionButtons>
               <div
                 style={{
                   overflowX: "scroll",

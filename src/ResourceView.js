@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import styled from "styled-components";
+import Image from "./Components/Image";
 
 const ResourceListWrap = styled.div`
   height: 72px;
@@ -19,16 +20,16 @@ const ResourceListWrap = styled.div`
 
 const ResourceListInfo = styled.div`
   flex: auto;
-  margin-left: 20px;
+  margin-left: 6px;
 `;
 
 const TextPrimary = styled.div`
-  color: "";
+  color: "#2A2D37";
   line-height: 16px;
 `;
 
 const TextTertiary = styled.div`
-  color: "";
+  color: "#989CAC";
   font-size: 12px;
   line-height: 13px;
 `;
@@ -36,6 +37,14 @@ const TextTertiary = styled.div`
 const ResourceCardList = (props) => {
   return (
     <ResourceListWrap>
+      <Image
+        src={null}
+        width="32px"
+        height="32px"
+        style={{
+          borderRadius: "50%",
+        }}
+      />
       <ResourceListInfo>
         <div>
           <TextPrimary>{props.item.slotName}</TextPrimary>
