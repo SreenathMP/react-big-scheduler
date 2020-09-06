@@ -177,7 +177,6 @@ class Scheduler extends Component {
 
   componentDidUpdate(props, state) {
     this.resolveScrollbarSize();
-
     const { schedulerData } = this.props;
     const { localeMoment, behaviors } = schedulerData;
     if (
@@ -203,15 +202,36 @@ class Scheduler extends Component {
           });
           this.schedulerContent.scrollLeft =
             (index - 1) * schedulerData.getContentCellWidth();
-
           schedulerData.setScrollToSpecialMoment(false);
         }
       }
     }
   }
 
-  scrollFunc = (offSet) => {
-    document.getElementById("schedulerViewId").scrollLeft = offSet;
+  sideScroll = (element, direction, speed, distance, step) => {
+    var scrollAmount = 0;
+    var slideTimer = setInterval(function () {
+      if (direction == "left") {
+        element.scrollLeft -= step;
+      } else {
+        element.scrollLeft += step;
+      }
+
+      scrollAmount += step;
+      if (scrollAmount >= distance) {
+        window.clearInterval(slideTimer);
+      }
+    }, speed);
+  };
+
+  scrollLeftFuncion = () => {
+    const element = document.getElementById("auto-scroll");
+    this.sideScroll(element, "left", 25, 100, 10);
+  };
+
+  scrollRightFunction = () => {
+    const element = document.getElementById("auto-scroll");
+    this.sideScroll(element, "right", 25, 100, 10);
   };
 
   render() {
@@ -277,7 +297,7 @@ class Scheduler extends Component {
       let contentPaddingBottom =
         contentScrollbarHeight === 0 ? resourceScrollbarHeight : 0;
       let schedulerContentStyle = {
-        overflowY: "hidden",
+        overflow: "hidden",
         margin: "0px",
         position: "relative",
         marginTop: "-30px",
@@ -356,7 +376,6 @@ class Scheduler extends Component {
 
           <div
             className="scheduler-view"
-            id="schedulerViewId"
             style={{
               width: schedulerContainerWidth,
               verticalAlign: "top",
@@ -370,13 +389,13 @@ class Scheduler extends Component {
               }}
             >
               <HeaderActionButtons>
-                <LeftButton onClick={() => this.scrollFunc(-20)}>
+                <LeftButton onClick={() => this.scrollLeftFuncion()}>
                   <Icon
                     type="left"
                     style={{ fontSize: "12px", color: "#6E717C" }}
                   />
                 </LeftButton>
-                <RightButton onClick={() => this.scrollFunc(20)}>
+                <RightButton onClick={() => this.scrollRightFunction()}>
                   <Icon
                     type="right"
                     style={{ fontSize: "12px", color: "#6E717C" }}
@@ -388,6 +407,7 @@ class Scheduler extends Component {
                   overflowX: "scroll",
                   overflowY: "hidden",
                   margin: `0px 0px -${contentScrollbarHeight}px`,
+                  marginLeft: "40px",
                 }}
                 ref={this.schedulerHeadRef}
                 onMouseOver={this.onSchedulerHeadMouseOver}
@@ -407,6 +427,7 @@ class Scheduler extends Component {
               </div>
             </div>
             <div
+              id="auto-scroll"
               style={schedulerContentStyle}
               ref={this.schedulerContentRef}
               onMouseOver={this.onSchedulerContentMouseOver}
