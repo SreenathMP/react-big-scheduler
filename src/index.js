@@ -142,6 +142,8 @@ class Scheduler extends Component {
 
   static propTypes = {
     schedulerData: PropTypes.object.isRequired,
+    locations: PropTypes.array.isRequired,
+    handleLocationChange: PropTypes.func.isRequired,
     prevClick: PropTypes.func.isRequired,
     nextClick: PropTypes.func.isRequired,
     onViewChange: PropTypes.func.isRequired,
@@ -234,8 +236,25 @@ class Scheduler extends Component {
     this.sideScroll(element, "right", 25, 100, 10);
   };
 
+  getLocationOptions = (locations) => {
+    let options = locations.map((row) => {
+      return (
+        <Select.Option key={row.id} value={row.id}>
+          {row.area}
+        </Select.Option>
+      );
+    });
+    return options;
+  };
+
   render() {
-    const { schedulerData, leftCustomHeader, rightCustomHeader } = this.props;
+    const {
+      schedulerData,
+      leftCustomHeader,
+      rightCustomHeader,
+      locations,
+      handleLocationChange,
+    } = this.props;
     const {
       renderData,
       viewType,
@@ -346,12 +365,13 @@ class Scheduler extends Component {
                         <WrapSelect>
                           <Select
                             size="large"
+                            onChange={(value, option) =>
+                              handleLocationChange(option.props)
+                            }
+                            defaultValue={locations[0].area}
                             style={{ width: "100%" }}
-                            defaultValue="San Jose"
                           >
-                            {["San Jose"].map((item) => (
-                              <Option value={item}>{item}</Option>
-                            ))}
+                            {this.getLocationOptions(locations)}
                           </Select>
                         </WrapSelect>
                       </div>

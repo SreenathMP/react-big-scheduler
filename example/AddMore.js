@@ -35,6 +35,24 @@ class AddMore extends Component {
 
   render() {
     const { viewModel } = this.state;
+    const locations_data = [
+      {
+        id: -1,
+        area: "Locations (All)",
+      },
+      {
+        id: 1294,
+        area: "Mountain View, CA",
+      },
+      {
+        id: 861,
+        area: "San Jose",
+      },
+      {
+        id: 668,
+        area: "Palmdale, CA",
+      },
+    ];
 
     let popover = <div />;
     if (this.state.headerItem !== undefined) {
@@ -66,8 +84,10 @@ class AddMore extends Component {
           </h3>
           <Scheduler
             schedulerData={viewModel}
+            locations={locations_data}
             prevClick={this.prevClick}
             nextClick={this.nextClick}
+            handleLocationChange={this.handleLocationChange}
             onSelectDate={this.onSelectDate}
             onViewChange={this.onViewChange}
             eventItemClick={this.eventClicked}
@@ -86,6 +106,10 @@ class AddMore extends Component {
       </div>
     );
   }
+
+  handleLocationChange = (option) => {
+    console.log(option);
+  };
 
   prevClick = (schedulerData) => {
     schedulerData.prev();
