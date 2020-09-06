@@ -368,7 +368,11 @@ class Scheduler extends Component {
                             onChange={(value, option) =>
                               handleLocationChange(option.props)
                             }
-                            defaultValue={locations[0].area}
+                            defaultValue={
+                              locations &&
+                              locations.length > 0 &&
+                              locations[0].area
+                            }
                             style={{ width: "100%" }}
                           >
                             {this.getLocationOptions(locations)}
