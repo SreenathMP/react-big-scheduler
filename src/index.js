@@ -144,6 +144,7 @@ class Scheduler extends Component {
     schedulerData: PropTypes.object.isRequired,
     locations: PropTypes.array.isRequired,
     handleLocationChange: PropTypes.func.isRequired,
+    customViewType: PropTypes.number.isRequired,
     prevClick: PropTypes.func.isRequired,
     nextClick: PropTypes.func.isRequired,
     onViewChange: PropTypes.func.isRequired,

@@ -37,14 +37,16 @@ const TextTertiary = styled.div`
 const ResourceCardList = (props) => {
   return (
     <ResourceListWrap>
-      <Image
-        src={props.item.img_file_url}
-        width="32px"
-        height="32px"
-        style={{
-          borderRadius: "50%",
-        }}
-      />
+      {props.viewTypes === 0 && (
+        <Image
+          src={props.item.img_file_url}
+          width="32px"
+          height="32px"
+          style={{
+            borderRadius: "50%",
+          }}
+        />
+      )}
       <ResourceListInfo>
         <TextPrimary>{props.item.slotName}</TextPrimary>
         <TextTertiary>{props.item.slotSubName.join()}</TextTertiary>
@@ -71,6 +73,7 @@ class ResourceView extends Component {
       contentScrollbarHeight,
       slotClickedFunc,
       slotItemTemplateResolver,
+      customViewType,
     } = this.props;
     const { renderData } = schedulerData;
     let width = schedulerData.getResourceTableWidth() - 2;
@@ -83,10 +86,10 @@ class ResourceView extends Component {
               slotClickedFunc(schedulerData, item);
             }}
           >
-            <ResourceCardList item={item} />
+            <ResourceCardList item={item} viewTypes={customViewType} />
           </a>
         ) : (
-          <ResourceCardList item={item} />
+          <ResourceCardList item={item} viewTypes={customViewType} />
         );
       let slotItem = (
         <div

@@ -84,6 +84,7 @@ class AddMore extends Component {
           </h3>
           <Scheduler
             schedulerData={viewModel}
+            customViewType={ViewTypes.Week}
             locations={locations_data}
             prevClick={this.prevClick}
             nextClick={this.nextClick}
