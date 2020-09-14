@@ -49,7 +49,7 @@ const ResourceCardList = (props) => {
       )}
       <ResourceListInfo>
         <TextPrimary>{props.item.slotName}</TextPrimary>
-        <TextTertiary>{props.item.slotSubName.join()}</TextTertiary>
+        <TextTertiary>{props.item.slotSubName[0]}</TextTertiary>
       </ResourceListInfo>
     </ResourceListWrap>
   );
