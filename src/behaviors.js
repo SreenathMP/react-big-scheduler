@@ -144,7 +144,7 @@ export const isNonWorkingTime = (schedulerData, time) => {
   const { localeMoment } = schedulerData;
   if (schedulerData.cellUnit === CellUnits.Hour) {
     let hour = localeMoment(time).hour();
-    if (hour < 7 || hour > 22) return true;
+    if (hour > 20) return true;
   } else {
     let dayOfWeek = localeMoment(time).weekday();
     if (dayOfWeek === 0 || dayOfWeek === 6) return true;

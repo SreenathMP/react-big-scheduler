@@ -14,8 +14,8 @@
   font-weight: 500;
 }
 
-.anticon {
-  vertical-align: 0em !important;
+.ant-select-arrow-icon {
+  vertical-align: top !important;
 }
 
 .base-text {
