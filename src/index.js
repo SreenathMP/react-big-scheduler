@@ -392,7 +392,7 @@ class Scheduler extends Component {
                             optionList={locations}
                             optionKey="area"
                             optionValue="id"
-                            width="auto"
+                            width="183px"
                             height="40px"
                             backgroundColor="#F4F4F8"
                           />
