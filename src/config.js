@@ -44,7 +44,7 @@ export default {
   dayStopTo: 23,
   defaultEventBgColor: "#80C5F6",
   selectedAreaColor: "#7EC2F3",
-  nonWorkingTimeHeadColor: "black",
+  nonWorkingTimeHeadColor: "#6E717C",
   nonWorkingTimeHeadBgColor: "#ffffff",
   nonWorkingTimeBodyBgColor: "#ffffff",
   summaryColor: "#666",
@@ -71,7 +71,7 @@ export default {
   eventItemPopoverDateFormat: "MMM D",
   nonAgendaDayCellHeaderFormat: "HH:mm",
   nonAgendaOtherCellHeaderFormat: "ddd M/D",
-
+  timeHourTextFontSize: "15px",
   minuteStep: 30,
 
   views: [

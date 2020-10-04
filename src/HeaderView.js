@@ -31,8 +31,13 @@ class HeaderView extends Component {
               color: config.nonWorkingTimeHeadColor,
               backgroundColor: config.nonWorkingTimeHeadBgColor,
               paddingTop: "10px",
+              fontSize: config.timeHourTextFontSize,
             }
-          : { width: (cellWidth * minuteStepsInHour) / 2, paddingTop: "10px" };
+          : {
+              width: (cellWidth * minuteStepsInHour) / 2,
+              paddingTop: "10px",
+              fontSize: config.timeHourTextFontSize,
+            };
 
         if (index === headers.length - minuteStepsInHour / 2)
           style = !!item.nonWorkingTime
@@ -40,6 +45,7 @@ class HeaderView extends Component {
                 color: config.nonWorkingTimeHeadColor,
                 backgroundColor: config.nonWorkingTimeHeadBgColor,
                 paddingTop: "10px",
+                fontSize: config.timeHourTextFontSize,
               }
             : {};
 
@@ -77,6 +83,7 @@ class HeaderView extends Component {
               width: cellWidth,
               color: config.nonWorkingTimeHeadColor,
               backgroundColor: config.nonWorkingTimeHeadBgColor,
+              fontSize: config.timeHourTextFontSize,
             }
           : { width: cellWidth };
         if (index === headers.length - 1)
@@ -84,6 +91,7 @@ class HeaderView extends Component {
             ? {
                 color: config.nonWorkingTimeHeadColor,
                 backgroundColor: config.nonWorkingTimeHeadBgColor,
+                fontSize: config.timeHourTextFontSize,
               }
             : {};
 

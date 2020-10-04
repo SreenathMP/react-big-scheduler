@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
+
 // Col, Row and Icon do not have their own less files for styling. They use
 // rules declared in antd's global css. If these styles are imported directly
 // from within antd, they'll include, for instance, reset rules. These will
@@ -54,7 +55,6 @@ import TimeLine from "./TimeLine";
 import styled from "styled-components";
 import SlotPointer from "./SlotPointer";
 import DurationSelectBox from "./DurationSelectBox";
-
 const WrapSelect = styled.div``;
 
 const SchedularContent = styled.div`
@@ -145,7 +145,7 @@ class Scheduler extends Component {
     schedulerData: PropTypes.object.isRequired,
     locations: PropTypes.array.isRequired,
     handleLocationChange: PropTypes.func.isRequired,
-    currentLocation: PropTypes.string,
+    currentLocation: PropTypes.any,
     customViewType: PropTypes.number.isRequired,
     prevClick: PropTypes.func.isRequired,
     nextClick: PropTypes.func.isRequired,
@@ -393,7 +393,7 @@ class Scheduler extends Component {
                             optionKey="area"
                             optionValue="id"
                             width="auto"
-                            height="35px"
+                            height="40px"
                             backgroundColor="#F4F4F8"
                           />
                         </WrapSelect>
@@ -520,7 +520,7 @@ class Scheduler extends Component {
             <div className="header2-text calender-box">
               <Icon
                 type="left"
-                style={{ marginRight: "8px" }}
+                style={{ marginRight: "20px" }}
                 className="icon-nav"
                 onClick={this.goBack}
               />
@@ -544,7 +544,7 @@ class Scheduler extends Component {
               )}
               <Icon
                 type="right"
-                style={{ marginLeft: "8px" }}
+                style={{ marginLeft: "20px" }}
                 className="icon-nav"
                 onClick={this.goNext}
               />

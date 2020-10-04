@@ -10,6 +10,7 @@ const SlotPointer = (props) => {
       elements.push(
         <div
           className="slotMark"
+          key={i}
           style={{
             width: i,
           }}

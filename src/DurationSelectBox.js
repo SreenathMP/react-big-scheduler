@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
-import { DownOutlined } from "@ant-design/icons";
+import styled, { ThemeProvider } from "styled-components";
+import Icon from "antd/lib/icon";
+import theme from "./config/styles";
 
 const FilterWrap = styled.div`
   position: absolute;
@@ -53,14 +54,22 @@ const FilterDefinedOption = styled.div`
 `;
 
 const ChartFilter = styled.div`
-  color: ${(props) => props.theme.colors.textPrimary};
+  color: #6e717c;
   font-size: ${(props) => props.theme.fontSize.p};
   line-height: ${(props) => (props.height ? props.height : "26px")};
-  text-align: center;
+  padding-left: 30px;
   border: ${(props) => (props.border ? "1px solid #c2c4cf" : "0px solid")};
 `;
 
-const DurationSelectBox = (props) => {
+const IconWrap = styled(Icon)`
+  position: absolute;
+  text-align: end;
+  right: 0;
+  top: 14px;
+  margin-right: 18px;
+`;
+
+export default function DurationSelectBox(props) {
   const {
     onChangeOption,
     parseId,
@@ -94,7 +103,7 @@ const DurationSelectBox = (props) => {
     return copyVal;
   };
 
-  const filterDurationOptions = () => {
+  const filterDurationOptions = (optionVal, optionKeyParam) => {
     let copyVal = optionVal;
     const currentOption = getCurrentOption(optionVal);
     Object.entries(currentOption).map(([key, value]) => {
@@ -160,7 +169,7 @@ const DurationSelectBox = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <ThemeProvider theme={theme}>
       <div
         ref={filterRef}
         style={{
@@ -176,7 +185,12 @@ const DurationSelectBox = (props) => {
           border={border !== undefined}
         >
           {filterDurationOptions(currentValue, true)}
-          <DownOutlined style={{ marginLeft: "5px", fontSize: "11px" }} />
+          <IconWrap
+            type="down"
+            style={{
+              fontSize: "12px",
+            }}
+          ></IconWrap>
         </ChartFilter>
       </div>
       {showFilter && (
@@ -208,8 +222,6 @@ const DurationSelectBox = (props) => {
           </FilterDefinedWrap>
         </FilterWrap>
       )}
-    </React.Fragment>
+    </ThemeProvider>
   );
-};
-
-export default DurationSelectBox;
+}
