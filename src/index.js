@@ -53,6 +53,7 @@ import DemoData from "./DemoData";
 import TimeLine from "./TimeLine";
 import styled from "styled-components";
 import SlotPointer from "./SlotPointer";
+import DurationSelectBox from "./DurationSelectBox";
 
 const WrapSelect = styled.div``;
 
@@ -144,6 +145,7 @@ class Scheduler extends Component {
     schedulerData: PropTypes.object.isRequired,
     locations: PropTypes.array.isRequired,
     handleLocationChange: PropTypes.func.isRequired,
+    currentLocation: PropTypes.string,
     customViewType: PropTypes.number.isRequired,
     prevClick: PropTypes.func.isRequired,
     nextClick: PropTypes.func.isRequired,
@@ -254,6 +256,7 @@ class Scheduler extends Component {
       leftCustomHeader,
       rightCustomHeader,
       locations,
+      currentLocation,
       handleLocationChange,
     } = this.props;
     const {
@@ -343,7 +346,7 @@ class Scheduler extends Component {
         ? config.taskName
         : config.resourceName;
       tbodyContent = (
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", marginTop: "20px" }}>
           <div className="resource-view">
             <div
               style={{
@@ -363,6 +366,7 @@ class Scheduler extends Component {
                     <div style={{ height: config.tableHeaderHeight }}>
                       <div className="header3-text">
                         {" "}
+                        {/*
                         <WrapSelect>
                           <Select
                             size="large"
@@ -378,6 +382,20 @@ class Scheduler extends Component {
                           >
                             {this.getLocationOptions(locations)}
                           </Select>
+                        </WrapSelect>
+                          */}
+                        <WrapSelect>
+                          <DurationSelectBox
+                            onChangeOption={handleLocationChange}
+                            parseId={null}
+                            currentValue={currentLocation}
+                            optionList={locations}
+                            optionKey="area"
+                            optionValue="id"
+                            width="auto"
+                            height="35px"
+                            backgroundColor="#F4F4F8"
+                          />
                         </WrapSelect>
                       </div>
                     </div>
@@ -495,11 +513,11 @@ class Scheduler extends Component {
           type="flex"
           align="middle"
           justify="space-between"
-          style={{ marginBottom: "24px" }}
+          style={{ marginTop: "-8px", width: "183px" }}
         >
           {leftCustomHeader}
           <Col>
-            <div className="header2-text">
+            <div className="header2-text calender-box">
               <Icon
                 type="left"
                 style={{ marginRight: "8px" }}

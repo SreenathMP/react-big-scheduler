@@ -44,9 +44,9 @@ export default {
   dayStopTo: 23,
   defaultEventBgColor: "#80C5F6",
   selectedAreaColor: "#7EC2F3",
-  nonWorkingTimeHeadColor: "#999999",
-  nonWorkingTimeHeadBgColor: "#fff0f6",
-  nonWorkingTimeBodyBgColor: "#fff0f6",
+  nonWorkingTimeHeadColor: "black",
+  nonWorkingTimeHeadBgColor: "#ffffff",
+  nonWorkingTimeBodyBgColor: "#ffffff",
   summaryColor: "#666",
   summaryPos: SummaryPos.TopRight,
 

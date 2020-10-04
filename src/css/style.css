@@ -9,6 +9,14 @@
   font-weight: 500;
 }
 
+.calender-box {
+  height: 40px;
+  width: 183px;
+  text-align: center;
+  background: #f4f4f8;
+  padding: 10px 0px;
+}
+
 .header3-text {
   font-size: 12px;
   font-weight: 500;
