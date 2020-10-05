@@ -55,7 +55,6 @@ import TimeLine from "./TimeLine";
 import styled from "styled-components";
 import SlotPointer from "./SlotPointer";
 import DurationSelectBox from "./DurationSelectBox";
-const WrapSelect = styled.div``;
 
 const SchedularContent = styled.div`
   display: flex;
@@ -384,19 +383,17 @@ class Scheduler extends Component {
                           </Select>
                         </WrapSelect>
                           */}
-                        <WrapSelect>
-                          <DurationSelectBox
-                            onChangeOption={handleLocationChange}
-                            parseId={null}
-                            currentValue={currentLocation}
-                            optionList={locations}
-                            optionKey="area"
-                            optionValue="id"
-                            width="183px"
-                            height="40px"
-                            backgroundColor="#F4F4F8"
-                          />
-                        </WrapSelect>
+                        <DurationSelectBox
+                          onChangeOption={handleLocationChange}
+                          parseId={null}
+                          currentValue={currentLocation}
+                          optionList={locations}
+                          optionKey="area"
+                          optionValue="id"
+                          width="183px"
+                          height="40px"
+                          backgroundColor="#F4F4F8"
+                        />
                       </div>
                     </div>
                   </div>
