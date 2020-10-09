@@ -43,7 +43,7 @@ export default {
   dayStartFrom: 0,
   dayStopTo: 23,
   defaultEventBgColor: "#80C5F6",
-  selectedAreaColor: "#7EC2F3",
+  selectedAreaColor: "#F4F4F8",
   nonWorkingTimeHeadColor: "#2A2D37",
   nonWorkingTimeHeadBgColor: "#ffffff",
   nonWorkingTimeBodyBgColor: "#ffffff",

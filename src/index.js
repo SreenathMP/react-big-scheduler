@@ -322,7 +322,7 @@ class Scheduler extends Component {
         overflow: "hidden",
         margin: "0px",
         position: "relative",
-        marginTop: "-30px",
+        margin: "-30px 45px 0px",
         paddingBottom: contentPaddingBottom,
       };
       let resourceContentStyle = {
@@ -446,8 +446,7 @@ class Scheduler extends Component {
                 style={{
                   overflowX: "scroll",
                   overflowY: "hidden",
-                  margin: `0px 0px -${contentScrollbarHeight}px`,
-                  marginLeft: "40px",
+                  margin: `0px 45px -${contentScrollbarHeight}px`,
                 }}
                 ref={this.schedulerHeadRef}
                 onMouseOver={this.onSchedulerHeadMouseOver}

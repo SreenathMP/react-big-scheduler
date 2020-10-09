@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import { PropTypes } from "prop-types";
 import styled from "styled-components";
 import Image from "./Components/Image";
@@ -24,34 +25,70 @@ const ResourceListInfo = styled.div`
 `;
 
 const TextPrimary = styled.div`
-  color: #2a2d37;
+  color: ${(props) => (props.day ? "#fff" : "#2a2d37")};
   line-height: 16px;
+  font-size: ${(props) => (props.font ? "16px" : "15px")};
 `;
 
 const TextTertiary = styled.div`
-  color: #989cac;
-  font-size: 12px;
+  color: ${(props) => (props.day ? "#fff" : "#989cac")};
+  font-size: 13px;
   line-height: 13px;
+  margin-top: 4px;
+`;
+
+const ResourceWeekWrap = styled.div`
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  justify-content: end;
+  margin-right: 5px;
+`;
+
+const ResourceWeekListInfo = styled.div`
+  flex: auto;
+  text-align: end;
+  padding: 14px 10px;
+  background: ${(props) => (props.day ? "#4fbc7b" : "#fff")};
 `;
 
 const ResourceCardList = (props) => {
+  const SameDateCheck = (currentDate) => {
+    const now = moment().format("YYYY-MM-DD");
+    if (currentDate === now) return true;
+    else return false;
+  };
   return (
-    <ResourceListWrap>
-      {props.viewTypes === 0 && (
-        <Image
-          src={props.item.img_file_url}
-          width="32px"
-          height="32px"
-          style={{
-            borderRadius: "50%",
-          }}
-        />
+    <React.Fragment>
+      {props.viewTypes === 0 ? (
+        <ResourceListWrap>
+          <Image
+            src={props.item.img_file_url}
+            width="32px"
+            height="32px"
+            style={{
+              borderRadius: "50%",
+            }}
+          />
+          <ResourceListInfo>
+            <TextPrimary>{props.item.slotName}</TextPrimary>
+            <TextTertiary>{props.item.slotSubName[0]}</TextTertiary>
+          </ResourceListInfo>
+        </ResourceListWrap>
+      ) : (
+        <ResourceWeekWrap>
+          <ResourceWeekListInfo day={SameDateCheck(props.item.current_date)}>
+            <TextPrimary day={SameDateCheck(props.item.current_date)} font>
+              {props.item.slotName}
+            </TextPrimary>
+            <TextTertiary day={SameDateCheck(props.item.current_date)}>
+              {props.item.slotSubName[0]}
+            </TextTertiary>
+          </ResourceWeekListInfo>
+        </ResourceWeekWrap>
       )}
-      <ResourceListInfo>
-        <TextPrimary>{props.item.slotName}</TextPrimary>
-        <TextTertiary>{props.item.slotSubName[0]}</TextTertiary>
-      </ResourceListInfo>
-    </ResourceListWrap>
+    </React.Fragment>
   );
 };
 
