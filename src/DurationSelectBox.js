@@ -176,6 +176,7 @@ export default function DurationSelectBox(props) {
           position: "relative",
           cursor: "pointer",
           width: width !== undefined ? width : "130px",
+          borderRadius: "4px",
           backgroundColor:
             backgroundColor !== undefined ? backgroundColor : "#fff",
         }}
