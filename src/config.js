@@ -37,8 +37,9 @@ export default {
   yearMaxEvents: 99,
   customMaxEvents: 99,
 
-  eventItemHeight: 24,
-  eventItemLineHeight: 22,
+  eventItemHeight: 25,
+  eventItemLineHeight: 25,
+  eventItemFontSize: 13,
   nonAgendaSlotMinHeight: 0,
   dayStartFrom: 0,
   dayStopTo: 23,

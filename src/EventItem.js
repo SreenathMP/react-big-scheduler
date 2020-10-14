@@ -521,9 +521,12 @@ class EventItem extends Component {
           style={{
             marginLeft: "10px",
             lineHeight: `${config.eventItemLineHeight}px`,
+            fontSize: `${config.eventItemFontSize}px`,
           }}
         >
-          {eventTitle}
+          {`${localeMoment(eventItem.start).format("HH:mm")} - ${localeMoment(
+            eventItem.end
+          ).format("HH:mm")} - ${eventTitle}`}
         </span>
       </div>
     );
